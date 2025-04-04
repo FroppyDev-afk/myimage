@@ -40,9 +40,7 @@ dnf5 -y install lact
 dnf5 -y copr disable ilyaz/LACT 
 
 
-# Disable COPRs so they don't end up enabled on the final image:
-
-#### Example for enabling a System Unit File
+#### enabling System Unit Files
 
 systemctl enable lactd
 systemctl enable podman.socket

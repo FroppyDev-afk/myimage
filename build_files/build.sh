@@ -26,9 +26,7 @@ RUN --mount=type=cache,dst=/var/cache \
 RUN --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=tmpfs,dst=/tmp \
-    dnf5 -y install \
-        steam\     
+    --mount=type=tmpfs,dst=/tmp \   
     dnf5 -y --setopt=install_weak_deps=False install \
         rocm-hip \
         rocm-opencl \
@@ -38,7 +36,7 @@ RUN --mount=type=cache,dst=/var/cache \
     rm -rf /tmp/* || true\
 
 
-
+dnf5 -y install steam
 # Use a COPR Example:
 dnf5 -y copr enable ilyaz/LACT 
 dnf5 -y install lact

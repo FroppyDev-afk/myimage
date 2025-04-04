@@ -14,6 +14,9 @@ dnf5 remove -y tmux
 
 # Use a COPR Example:
 #
+dnf5 -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+dnf5 -y  install mullvad-vpn
+
 dnf5 -y copr enable ilyaz/LACT 
 dnf5 -y install lact
 # Disable COPRs so they don't end up enabled on the final image:

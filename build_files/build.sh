@@ -20,8 +20,8 @@ RUN --mount=type=cache,dst=/var/cache \
         firefox \
         firefox-langpacks \
         htop && \
-    dnf5 -y clean all
-    rm -rf /tmp/* || true
+    dnf5 -y clean all\
+    rm -rf /tmp/* || true\
 
 RUN --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
@@ -34,8 +34,8 @@ RUN --mount=type=cache,dst=/var/cache \
         rocm-opencl \
         rocm-clinfo \
         rocm-smi && \
-    dnf5 -y clean all
-    rm -rf /tmp/* || true\    
+    dnf5 -y clean all\
+    rm -rf /tmp/* || true\
 
 
 

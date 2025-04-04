@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-#dnf5 remove -y tmux
+dnf5 remove -y tmux
 
 dnf5 -y --setopt=install_weak_deps=False install \
     rocm-hip \
@@ -20,8 +20,8 @@ dnf5 -y --setopt=install_weak_deps=False install \
 
 # Use a COPR Example:
 #
-dnf5 -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
-dnf5 -y  install mullvad-vpn
+# dnf5 -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+# dnf5 -y  install mullvad-vpn
 
 dnf5 -y copr enable ilyaz/LACT 
 dnf5 -y install lact
@@ -29,5 +29,5 @@ dnf5 -y install lact
 dnf5 -y copr disable ilyaz/LACT 
 #### Example for enabling a System Unit File
 
-#systemctl enable lactd.socket
+systemctl enable lactd.socket
 systemctl enable podman.socket

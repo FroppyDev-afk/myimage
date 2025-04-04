@@ -20,7 +20,9 @@ RUN --mount=type=cache,dst=/var/cache \
         firefox \
         firefox-langpacks \
         htop && \
-    /ctx/cleanup
+    dnf5 -y clean all
+    dnf5 -y autoremove
+
 
 RUN --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
@@ -31,7 +33,7 @@ RUN --mount=type=cache,dst=/var/cache \
         rocm-opencl \
         rocm-clinfo \
         rocm-smi && \     
-    /ctx/cleanup
+
 
 
 # Use a COPR Example:

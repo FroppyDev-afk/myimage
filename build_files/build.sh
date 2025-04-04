@@ -20,14 +20,14 @@ RUN --mount=type=cache,dst=/var/cache \
         firefox \
         firefox-langpacks \
         htop && \
-    dnf5 -y clean all
-    dnf5 -y autoremove
 
 
 RUN --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
+    dnf5 -y install \
+        steam\     
     dnf5 -y --setopt=install_weak_deps=False install \
         rocm-hip \
         rocm-opencl \
@@ -40,7 +40,6 @@ RUN --mount=type=cache,dst=/var/cache \
 dnf5 -y copr enable ilyaz/LACT 
 dnf5 -y install lact
 dnf5 -y copr disable ilyaz/LACT 
-
 
 
 # Disable COPRs so they don't end up enabled on the final image:

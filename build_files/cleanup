@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-set -eoux pipefail
+#set -eoux pipefail
 
 dnf5 -y clean all
 rm -rf /tmp/* || true

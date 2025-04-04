@@ -2,7 +2,7 @@
 
 set -eoux pipefail
 
-dnf5 clean all
+dnf5 -y clean all
 rm -rf /tmp/* || true
 
 ostree container commit

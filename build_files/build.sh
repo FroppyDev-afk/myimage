@@ -26,23 +26,18 @@ RUN --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
-    
-    dnf5 -y copr enable ilyaz/LACT 
-    dnf5 -y install lact
-    dnf5 -y copr disable ilyaz/LACT 
-    
     dnf5 -y --setopt=install_weak_deps=False install \
         rocm-hip \
         rocm-opencl \
         rocm-clinfo \
-        rocm-smi && \
-    
+        rocm-smi && \     
     /ctx/cleanup
 
+
 # Use a COPR Example:
-#
-# dnf5 -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
-# dnf5 -y  install mullvad-vpn
+dnf5 -y copr enable ilyaz/LACT 
+dnf5 -y install lact
+dnf5 -y copr disable ilyaz/LACT 
 
 
 
